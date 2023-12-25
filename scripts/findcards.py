@@ -16,7 +16,7 @@ def find_cards():
     client_secret = "PRD-ca8111fbb25b-ea35-40b0-9532-55d7"
     api = Connection(appid=client_id, config_file=None)
 
-    grades = [1, 11]
+    grades = range(1, 11)
     for grade in grades:
         for page_num in range(1, 100):
 
