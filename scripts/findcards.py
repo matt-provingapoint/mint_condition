@@ -7,7 +7,7 @@ from PIL import Image
 import os 
 import numpy as np
 import matplotlib.pyplot as plt
-'''
+
 def find_cards():
     # List card URLs from Ebay API
 
@@ -72,7 +72,7 @@ def download_images():
                     print(e)
                     time.sleep(0.25)
 
-'''
+
 def auto_crop_images():
 
 
@@ -113,6 +113,6 @@ def auto_crop_images():
 '''
 if __name__ == "__main__":
 
-    #find_cards()
-    download_images()
+    find_cards()
+    #download_images()
     #auto_crop_images()
