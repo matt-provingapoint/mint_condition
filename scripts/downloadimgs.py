@@ -42,7 +42,7 @@ def find_cards():
             with open(of_p, "wb") as of:
                 pickle.dump(j, of)
 
-def download_images():
+  def download_images():
     # Download card Images from Ebay.
 
     # Iterate over json files.if __name__ == "__main__":
@@ -53,10 +53,18 @@ def download_images():
             in_p = "1986page_jsons/psa_grade_{}_page_{}.pkl".format(grade, page_num)
             j = pickle.load(open(in_p, "rb"))
             j = json.loads(j)
-            print(j.keys())
+            
+            if 'searchResult' in j and 'item' in j['searchResult']:
+                items = j["searchResult"]["item"]  # json[] length 100.
+        for idx, item in enumerate(items):
+                try:
+                    # Your download code here
+                    except Exception as e:
+                        print("Error downloading item:", e)
+                        time.sleep(0.25)
+            else:
+                print("No 'searchResult' or 'item' found in response:", j)
 
-            items = j["searchResult"]["item"] # json[] length 100.
-            for idx, item in enumerate(items):
 
                 try: 
 
