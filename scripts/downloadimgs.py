@@ -7,8 +7,9 @@ from PIL import Image
 import os 
 import numpy as np
 import matplotlib.pyplot as plt
-'''
+
 def find_cards():
+
     # List card URLs from Ebay API
 
     client_id = "RobertTh-insight-PRD-8ca8111fb-03bf72d2"
@@ -40,13 +41,20 @@ def find_cards():
             print(of_p)
             with open(of_p, "wb") as of:
                 pickle.dump(j, of)
-'''
+
 def download_images():
     # Download card Images from Ebay.
 
     # Iterate over json files.if __name__ == "__main__":
+    for page_num in range(1, 100):
+        for grade in range(1, 11):
 
             # Get data.
+            in_p = "1986page_jsons/psa_grade_{}_page_{}.pkl".format(grade, page_num)
+            j = pickle.load(open(in_p, "rb"))
+            j = json.loads(j)
+            print(j.keys())
+
             items = j["searchResult"]["item"] # json[] length 100.
             for idx, item in enumerate(items):
 
@@ -57,7 +65,7 @@ def download_images():
                     url = item["pictureURLLarge"]
 
                     # Download img.
-                    of_p = "imgs/grade_{}_page_{}_id_{}.jpg".format(grade, page_num, idx)
+                    of_p = "1986imgs/grade_{}_page_{}_id_{}.jpg".format(grade, page_num, idx)
                     res = requests.get(url).content
                     print(of_p)
 
