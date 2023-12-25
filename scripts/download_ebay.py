@@ -16,14 +16,14 @@ def find_cards():
     client_secret = "PRD-ca8111fbb25b-ea35-40b0-9532-55d7"
     api = Connection(appid=client_id, config_file=None)
 
-    grades = [10, 8, 6, 4, 2]
+    grades = [1, 11]
     for grade in grades:
         for page_num in range(1, 100):
 
             # get data.
             params = {
-             "categoryName": "Baseball Cards",
-             "keywords" : "psa {}".format(grade),
+             "categoryName": "Trading Card Singles",
+             "keywords" : "1986 Fleer Basketball Cards psa {}".format(grade),
              "paginationInput" : 
                     {
                         "entriesPerPage" : 100,
@@ -121,6 +121,6 @@ def auto_crop_images():
 
 if __name__ == "__main__":
 
-    #find_cards()
+    find_cards()
     #download_images()
-    auto_crop_images()
+    #auto_crop_images()
